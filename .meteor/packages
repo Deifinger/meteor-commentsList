@@ -25,8 +25,14 @@ kadira:blaze-layout
 ddp-rate-limiter
 underscore
 useraccounts:core
-accounts-ui
 accounts-facebook
 accounts-google
 accounts-twitter
-twbs:bootstrap
+useraccounts:flow-routing
+aldeed:template-extension
+service-configuration
+zcurtis:uikit
+cyloncourt:useraccounts-uikit
+accounts-ui-unstyled
+random
+check

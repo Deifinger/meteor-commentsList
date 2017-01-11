@@ -1,0 +1,9 @@
+<template name="Auth_form">
+    {{> atForm }}
+</template>
+
+<template name="override-atSocial">
+    <button class="at-social-btn uk-button .uk-button-default {{disabled}} {{serviceName}}" id="at-{{name}}" name="{{name}}" title="{{name}}">
+        <i class="{{iconClass}}"></i>
+    </button>
+</template>

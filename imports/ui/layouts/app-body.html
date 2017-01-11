@@ -1,5 +1,11 @@
 <template name="App_body">
-    <div id="container" class="">
-        Hello there!
+    <div id="container">
+        <div id="content-container">
+            {{#if Template.subscriptionsReady}}
+                {{> Template.dynamic template=main}}
+            {{else}}
+                {{> App_loading}}
+            {{/if}}
+        </div>
     </div>
 </template>

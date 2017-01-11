@@ -1,0 +1,22 @@
+{
+  "public": {},
+  "private": {
+    "oAuth": {
+      "facebook": {
+        "appId": "1762349077417557",
+        "secret": "e44559579767bffb064628dda90dc4ab",
+        "loginStyle": "popup"
+      },
+      "google": {
+        "clientId": "1011814998914-1d0gvruq2da88b309tegdvln23rf52gv.apps.googleusercontent.com",
+        "secret": "72knFGRsG60WSbmdGpvn7uAo",
+        "loginStyle": "popup"
+      },
+      "twitter": {
+        "consumerKey": "vk6ZKnXSzzXrgguXqvx47kAbz",
+        "secret": "MxDMK5q13dU2WWlIMReI9kBHktfRuYO93TAOcKaiS7ZJeVHgAS",
+        "loginStyle": "popup"
+      }
+    }
+  }
+}

@@ -3,8 +3,8 @@ accounts-facebook@1.0.3
 accounts-google@1.0.3
 accounts-oauth@1.1.3
 accounts-twitter@1.0.3
-accounts-ui@1.1.4
 accounts-ui-unstyled@1.1.6
+aldeed:template-extension@4.0.0
 allow-deny@1.0.5
 autopublish@1.0.7
 autoupdate@1.2.11
@@ -21,6 +21,7 @@ caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
 coffeescript@1.0.17
+cyloncourt:useraccounts-uikit@1.13.1
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.8
@@ -46,7 +47,6 @@ jquery@1.11.10
 kadira:blaze-layout@2.3.0
 kadira:flow-router@2.12.1
 launch-screen@1.0.12
-less@1.0.14
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.16
@@ -88,11 +88,12 @@ templating-compiler@1.2.15
 templating-runtime@1.2.15
 templating-tools@1.0.5
 tracker@1.1.1
-twbs:bootstrap@3.3.6
 twitter@1.1.3
 ui@1.0.12
 underscore@1.0.10
 url@1.0.11
 useraccounts:core@1.14.2
+useraccounts:flow-routing@1.14.2
 webapp@1.3.12
 webapp-hashing@1.0.9
+zcurtis:uikit@2.24.3_4

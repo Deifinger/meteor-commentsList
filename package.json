@@ -2,7 +2,7 @@
   "name": "commentsList",
   "private": true,
   "scripts": {
-    "start": "meteor run",
+    "start": "meteor run --settings settings.json",
     "lint": "eslint ."
   },
   "dependencies": {
