@@ -1,0 +1,38 @@
+.at-social-btn {
+  padding: 8px 40px;
+  font-size: 1.6em;
+  margin-left: 12px;
+  border: 0;
+  color: #fff;
+  border-radius: 0;
+  text-shadow: none;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+
+  &[name="facebook"] {
+    background: rgba(59,89,152,1);
+
+    &:hover { background: rgba(59,89,152,0.7) }
+  }
+  &[name="twitter"] {
+    background: rgba(29,161,243,1);
+
+    &:hover { background: rgba(29,161,243,0.7) }
+  }
+  &[name="google"] {
+    background: rgba(221,75,57,1);
+
+    &:hover { background: rgba(221,75,57,0.7) }
+  }
+}
+
+.at-title h3 {
+  text-align: center;
+  font-size: 1.8em;
+}

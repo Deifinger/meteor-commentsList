@@ -13,7 +13,7 @@ AccountsTemplates.configure({
 
     texts: {
         title: {
-            signIn: ""
+            signIn: "Sign In"
         }
     }
 });

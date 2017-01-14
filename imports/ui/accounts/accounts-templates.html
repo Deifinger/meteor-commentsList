@@ -1,7 +1,10 @@
-<template name="Auth_page">
-    <div class="page auth">
-        <div class="wrapper-auth uk-text-center">
-            {{> Auth_form }}
+<template name="authPage">
+    <div class="page auth uk-flex uk-flex-middle uk-flex-center">
+        <div class="wrapper-auth">
+            {{> authForm }}
+            <div class="not-registered">
+                <p>For viewing comments without authorization <a href="{{pathFor 'comments'}}">click here</a></p>
+            </div>
         </div>
     </div>
 </template>

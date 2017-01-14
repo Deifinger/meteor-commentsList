@@ -1,10 +1,10 @@
-<template name="App_body">
+<template name="appBody">
     <div id="container">
         <div id="content-container">
             {{#if Template.subscriptionsReady}}
                 {{> Template.dynamic template=main}}
             {{else}}
-                {{> App_loading}}
+                {{> appLoading}}
             {{/if}}
         </div>
     </div>

@@ -1,0 +1,35 @@
+// RESPONSIVE
+$ms-xxs: 320px;
+$ms-xs: 560px;
+$ms-sm: 768px;
+$ms-md: 960px;
+$ms-lg: 1300px;
+
+// extra small
+@mixin -xs {
+  @media (max-width: $ms-xs - 1 ) {
+    @content;
+  }
+}
+
+// small
+@mixin -sm {
+  @media (max-width: $ms-sm - 1 ) {
+    @content;
+  }
+}
+
+// medium
+@mixin -md {
+  @media (max-width: $ms-md - 1 ) {
+    @content;
+  }
+}
+
+// large
+@mixin -lg {
+  @media (max-width: $ms-lg - 1 ) {
+    @content;
+  }
+}
+

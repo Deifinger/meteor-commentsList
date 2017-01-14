@@ -1,1 +1,2 @@
-// TODO: write imports of api endpoints
+import '../../api/comments/methods.js';
+import '../../api/comments/server/publications.js';
