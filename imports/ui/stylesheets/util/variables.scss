@@ -1,0 +1,14 @@
+// COLORS
+
+$color-primary-blue: #07D;
+$color-primary-white: #fff;
+$color-primary-red: rgb(248, 79, 40);
+
+// colors mixins
+@mixin background-color-primary-red($alpha: 1) {
+  background-color: rgba(248, 79, 40, $alpha);
+}
+
+// FONTS
+
+$font-primary: Arial, sans-serif;

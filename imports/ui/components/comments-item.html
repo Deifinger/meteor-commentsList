@@ -1,9 +1,14 @@
 <template name="commentsItem">
     <div class="comment-item">
-        <div class="comment-header">
+        <div class="comment-header uk-flex uk-flex-wrap">
             <div class="comment-name">{{authorName}}</div>
-            <div class="comment-date">{{date}}</div>
+            <div class="comment-date">{{createdDate}}</div>
         </div>
         <div class="comment-text">{{text}}</div>
+        <div class="comment-footer uk-flex uk-flex-wrap">
+            {{#if currentUser }}
+                <a class="comment-reply uk-icon-mail-forward" title="Reply"></a>
+            {{/if}}
+        </div>
     </div>
 </template>

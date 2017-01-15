@@ -27,6 +27,7 @@ Comments.attachSchema(Comments.schema);
 
 // Init public fields
 Comments.publicFields = {
+    _id: 1,
     text: 1,
     date: 1,
     updateDate: 1,

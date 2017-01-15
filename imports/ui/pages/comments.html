@@ -7,7 +7,9 @@
         {{/if}}
         <div class="comments-list">
         {{#each comment in commentsList}}
-            {{> commentsItem (comment)}}
+            <div class="comment-wrap" data-id="{{comment._id}}">
+                {{> commentsItem (comment)}}
+            </div>
         {{else}}
             no comments
         {{/each}}

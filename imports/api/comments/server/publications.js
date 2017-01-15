@@ -2,7 +2,8 @@ import { Meteor } from 'meteor/meteor';
 
 import { Comments } from '../comments.js';
 
-Meteor.publish('comments.list', function commentsList() {
+// TODO: remove autopublish and subscribe client
+/*Meteor.publish('comments.list', function commentsList() {
     return Comments.find({
         parentId: { $equal: 0 },
     }, {
@@ -17,4 +18,4 @@ Meteor.publish('comments.replies', function commentsReplies(parentId) {
     }, {
         fields: Comments.publicFields,
     });
-});
+});*/

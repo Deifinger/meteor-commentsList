@@ -1,6 +1,8 @@
-import { Comments } from '../../api/comments/comments.js';
+import Moment from 'meteor/momentjs:moment';
 
 import './comments-item.html';
+
+let moment = Moment.moment;
 
 Template.commentsItem.onCreated(function commentsItemOnCreated() {
     this.autorun(() => {
@@ -13,6 +15,12 @@ Template.commentsItem.onCreated(function commentsItemOnCreated() {
 
 Template.commentsItem.helpers({
     authorName() {
-        return Meteor.users.findOne(this.userId).profile.name;
+        let user = Meteor.users.findOne(this.userId);
+        if(user) {
+            return user.profile.name;
+        }
+    },
+    createdDate() {
+        return moment(this.date).fromNow();
     }
 });
