@@ -1,8 +1,28 @@
 import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
-
-import "./auth-form.scss";
+import "../stylesheets/auth-form.scss";
 import "./auth-form.html";
+
+Template.authForm.onCreated(function authFormOnCreated() {
+
+    // Hack for getting helper of current template
+    if(!Template.authForm.__helpers[" isHome"]()) {
+        // Hide the title of form
+        Template['atForm'].helpers({
+            showTitle() {
+                return false;
+            }
+        });
+    }
+
+});
+
+Template.authForm.helpers({
+   isHome() {
+       return FlowRouter.getRouteName() == 'App.home';
+   }
+});
 
 // override helper of atSocial template
 Template['atSocial'].helpers({
@@ -20,4 +40,6 @@ Template['atSocial'].helpers({
 // replace some templates on own
 Template['override-atSocial'].replaces("atSocial");
 Template['override-atForm'].replaces("atForm");
+
+
 

@@ -1,5 +1,14 @@
 <template name="authForm">
-    {{> atForm }}
+    <div class="wrapper-auth">
+        {{> atForm }}
+        <div class="not-registered">
+            {{#if isHome}}
+                <p>For viewing comments without authorization <a href="{{pathFor 'comments'}}">click here</a></p>
+            {{else}}
+                <p>You need to login for leaving comments</p>
+            {{/if}}
+        </div>
+    </div>
 </template>
 
 <template name="override-atSocial">

@@ -1,14 +1,25 @@
 <template name="commentsItem">
-    <div class="comment-item">
-        <div class="comment-header uk-flex uk-flex-wrap">
-            <div class="comment-name">{{authorName}}</div>
-            <div class="comment-date">{{createdDate}}</div>
-        </div>
-        <div class="comment-text">{{text}}</div>
-        <div class="comment-footer uk-flex uk-flex-wrap">
+    <div class="comment-wrap" data-id="{{_id}}">
+        <div class="comment-item">
+            <div class="comment-header uk-flex uk-flex-wrap">
+                <div class="comment-name">{{authorName}}</div>
+                <div class="comment-date">{{createdDate}}</div>
+            </div>
+            <div class="comment-text">{{text}}</div>
             {{#if currentUser }}
-                <a class="comment-reply uk-icon-mail-forward" title="Reply"></a>
+                <div class="comment-footer uk-flex uk-flex-wrap">
+                    <!---<a class="comment-edit uk-icon-pencil" title="Edit"></a>-->
+                    <a class="comment-reply uk-icon-mail-forward" title="Reply"></a>
+                </div>
             {{/if}}
         </div>
+
+        {{#if commentReplies}}
+            <div class="comment-replies">
+                {{#each reply in commentReplies}}
+                    {{> commentsItem (reply)}}
+                {{/each}}
+            </div>
+        {{/if}}
     </div>
 </template>

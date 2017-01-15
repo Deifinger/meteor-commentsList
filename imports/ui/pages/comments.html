@@ -6,13 +6,11 @@
             {{> authForm }}
         {{/if}}
         <div class="comments-list">
-        {{#each comment in commentsList}}
-            <div class="comment-wrap" data-id="{{comment._id}}">
+            {{#each comment in commentsList}}
                 {{> commentsItem (comment)}}
-            </div>
-        {{else}}
-            no comments
-        {{/each}}
+            {{else}}
+                no comments
+            {{/each}}
         </div>
     </div>
 </template>
