@@ -9,7 +9,7 @@
             {{#each comment in commentsList}}
                 {{> commentsItem (commentsItemArgs comment)}}
             {{else}}
-                no comments
+                <p class="no-comments">no comments</p>
             {{/each}}
         </div>
     </div>
