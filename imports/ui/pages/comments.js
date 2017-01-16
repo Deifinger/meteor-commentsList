@@ -34,12 +34,22 @@ Template.commentsPage.onCreated(function commentsPageOnCreated() {
     this.state = new ReactiveDict();
     this.state.setDefault({
         commentIdWithForm: null,
+        editingCommentId: null
     });
 
     this.addComment = (text, parentId = "0") => {
         text = text.trim();
         if (text) {
             insert.call({ text, parentId}, (msg) => {
+                console.log(msg);
+            });
+        }
+    };
+
+    this.updateComment = (commentId, text) => {
+        text = text.trim();
+        if (text) {
+            updateText.call({ commentId, text }, (msg) => {
                 console.log(msg);
             });
         }
@@ -79,6 +89,21 @@ Template.commentsPage.onDestroyed(function () {
 Template.commentsPage.helpers({
     commentsList() {
         return Comments.find({ parentId: "0" }, {sort: {date: -1}});
+    },
+
+    commentsItemArgs(comment) {
+        const instance = Template.instance();
+        return {
+            comment,
+            editingCommentId: instance.state.get('editingCommentId')
+        }
+    },
+
+    commentFormArgs() {
+        return {
+            isEditComment: false,
+            defaultText: ""
+        };
     }
 });
 
@@ -88,19 +113,31 @@ Template.commentsPage.events({
         if(event.keyCode && event.keyCode != 13) return true;
 
         let $target = $(event.target),
-            $textarea = $target.is('textarea') ? $target : $target.parents('.comments-form:first').find('textarea'),
+            $form = $target.is('.comments-form') ? $target : $target.parents('.comments-form:first'),
+            $textarea = $form.find('textarea'),
             $commentWrap,
             parentId;
 
-        // define parent id
-        if(($commentWrap = $target.parents('.comment-wrap:first')).length) {
-            parentId = $commentWrap.data('id');
-            instance.hideReplyForm();
-        } else {
-            parentId = "0";
-        }
+        // if editing comment
+        if($form.is('.comment-editing-form')) {
 
-        instance.addComment( $textarea.val(), parentId ); // use Meteor Method
+            instance.updateComment( instance.state.get('editingCommentId'), $textarea.val() );
+            instance.state.set('editingCommentId', null);
+
+        // if adding comment
+        } else {
+
+            // define parent id
+            if(($commentWrap = $form.parents('.comment-wrap:first')).length) {
+                parentId = $commentWrap.data('id');
+                instance.hideReplyForm();
+            } else {
+                parentId = "0";
+            }
+
+            instance.addComment( $textarea.val(), parentId ); // use Meteor Method
+
+        }
 
         $textarea.val(''); // clear form
         return false; // cancel submit event
@@ -111,13 +148,25 @@ Template.commentsPage.events({
         let $commentWrap = $target.parents('.comment-wrap:first');
 
         // if id of comment-wrap equals to current replying comment
-        if($commentWrap.data('id') == instance.state.get('commentIdWithForm'))
+        if($commentWrap.data('id') == instance.state.get('commentIdWithForm')) {
             return true;
+        }
 
         instance.state.set('commentIdWithForm', $commentWrap.data('id'));
 
         // replace comments form after comment
         $commentWrap.find('.comment-item:first').after( instance.getReplyForm() );
         instance.showReplyForm();
+    },
+
+    'click .comment-edit'(event, instance) {
+        let $target = $(event.target);
+        let $commentWrap = $target.parents('.comment-wrap:first');
+
+        if($commentWrap.data('id') == instance.state.get('editingCommentId')) {
+            return false;
+        }
+
+        instance.state.set('editingCommentId', $commentWrap.data('id'));
     }
 });

@@ -1,13 +1,13 @@
 <template name="commentsPage">
     <div class="page comments container">
         {{#if currentUser }}
-            {{> commentsForm}}
+            {{> commentsForm (commentFormArgs)}}
         {{else}}
             {{> authForm }}
         {{/if}}
         <div class="comments-list">
             {{#each comment in commentsList}}
-                {{> commentsItem (comment)}}
+                {{> commentsItem (commentsItemArgs comment)}}
             {{else}}
                 no comments
             {{/each}}

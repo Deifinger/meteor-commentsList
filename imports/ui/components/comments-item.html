@@ -1,14 +1,20 @@
 <template name="commentsItem">
-    <div class="comment-wrap" data-id="{{_id}}">
+    <div class="comment-wrap" data-id="{{comment._id}}">
         <div class="comment-item">
             <div class="comment-header uk-flex uk-flex-wrap">
                 <div class="comment-name">{{authorName}}</div>
                 <div class="comment-date">{{createdDate}}</div>
             </div>
-            <div class="comment-text">{{text}}</div>
-            {{#if currentUser }}
+            {{#if editing }}
+                {{>commentsForm (commentFormArgs)}}
+            {{else}}
+                <div class="comment-text">{{comment.text}}</div>
+            {{/if}}
+            {{#if showFooter }}
                 <div class="comment-footer uk-flex uk-flex-wrap">
-                    <!---<a class="comment-edit uk-icon-pencil" title="Edit"></a>-->
+                    {{#if editable }}
+                        <a class="comment-edit uk-icon-pencil" title="Edit"></a>
+                    {{/if}}
                     <a class="comment-reply uk-icon-mail-forward" title="Reply"></a>
                 </div>
             {{/if}}
@@ -17,7 +23,7 @@
         {{#if commentReplies}}
             <div class="comment-replies">
                 {{#each reply in commentReplies}}
-                    {{> commentsItem (reply)}}
+                    {{> commentsItem (commentsItemArgs reply)}}
                 {{/each}}
             </div>
         {{/if}}

@@ -3,6 +3,8 @@
 .comments-form {
   position: relative;
   padding: 15px 0;
+  display: flex;
+  align-items: center;
 
   textarea {
     width: 100%;
@@ -22,7 +24,6 @@
   .comments-form-send {
     @include background-color-primary-red(0.6);
     position: absolute;
-    top: 29%;
     right: 0;
     font-size: 1.1em;
     border-radius: 50%;
@@ -72,10 +73,25 @@
 
     .comment-footer {
       padding: 0 10px 10px;
+      justify-content: flex-end;
 
       .comment-reply {
-        margin-left: auto;
+        margin-left: 10px;
       }
+    }
+
+    .comments-form {
+      margin-bottom: 10px;
+
+      textarea {
+        padding: 10px 50px 10px 10px;
+        height: 66px;
+      }
+
+      .comments-form-send {
+        right: 10px;
+      }
+
     }
   }
 
@@ -85,6 +101,7 @@
 
   .comments-form {
     padding-top: 0;
-    margin-bottom: 15px;
+    padding-bottom: 0;
+    margin-bottom: 30px;
   }
 }

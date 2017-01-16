@@ -1,6 +1,6 @@
 <template name="commentsForm">
-    <form class="comments-form">
-        <textarea name="text" placeholder="Type message here..."></textarea>
+    <form class="comments-form {{editingCommentClass}}">
+        <textarea name="text" placeholder="Type message here...">{{defaultText}}</textarea>
         <a title="Send" class="comments-form-send uk-icon-send"></a>
     </form>
 </template>
